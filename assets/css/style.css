@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    scroll-behavior: smooth;
+}
+::selection {
+    color: white;
+    background: #1b1b1b;
+  }
+
+body {
+    background: #1b1b1b;
+}
+h1{
+    letter-spacing: 3px;
+}
+
+/* The container box */
+.redirector_box{
+    background: #1b1b1b;
+    border-radius: 50px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 450px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.545);
+}
+
+/* The scrollable box */
+.redirector_btn_box{
+    background: black;
+    border-radius: 25px;
+    height: 30vh;
+    padding: 25px;
+    overflow-y:auto;
+}
+
+/* The "Title" REDIRECTOR BOX */
+.info{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+    background: black;
+    border-radius: 25px;
+    padding: 18px;
+    color: white;
+}
+
+/* Profile Image */
+.profile_img img{
+    width: 125px; 
+    height: 125px;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-bottom: 20px;
+
+}
+
+/* The MAIN button CSS */
+.btn{
+    width: 100%;
+    height:max-content;
+    font-size: 22px;
+    font-weight:900;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    background: white;
+    padding: 10px;
+}
+.btn:hover{
+    transition: 0.5s;
+    color: white;
+    letter-spacing: 7px;
+    transform: scale(0.93);
+    word-spacing: 10px;
+    text-shadow:7px 7px 6px black;
+}
+.btn:not(:hover){
+    transition: 0.5s;
+}
+
+
+/* Different color background for the buttons */
+.btn-portfolio:hover{
+    background: grey;
+}
+.btn-linkedin:hover{
+    background: #0077B5;
+}
+
+
+.btn-linkedin:hover > .fa-linkedin{
+    color: white;
+    transition: 0.5s;
+}
+.btn-linkedin:not(:hover) > .fa-linkedin{
+    transition: 0.5s;
+}
+.btn-ngllink:hover{
+    background: rgb(255, 208, 0);
+}
+.btn-spotify:hover{
+    background: rgb(1, 237, 32);
+}
+.btn-facebook:hover{
+    background: rgb(55, 192, 255);
+}
+.btn-twitter:hover{
+    background: rgb(38, 38, 38);
+    border: 2px solid rgb(38, 38, 38);
+}
+.btn-reddit:hover{
+    background: #ff7949;
+}
+.btn-instagram:hover{
+    background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.btn-github:hover{
+    background: rgb(38, 38, 38);
+    border: 2px solid rgb(38, 38, 38) ;
+}
+
+
+/* For "BACK" button */
+.btn-back{
+    color: white;
+    font-weight: 900;
+    width:30%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    padding: 20px;
+    border: none ;
+    border-radius: 20px;
+    background: grey;
+}
+.btn-back:hover{
+    background: rgb(69, 69, 69);
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+.btn-back:not(:hover){
+    transition: 0.5s;
+}
+
+
+/* Scrollbar CSS */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* FOR PORVIDING BUTTON DESCRIPTION */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+.link-desc{
+    letter-spacing: 2px;
+}
+.btn:hover > .link-desc{
+    color: white;
+}
+.link-desc{
+    font-size: 12px;
+    margin: 10px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
+    border-top:2px solid black ;
+    text-transform: none;
+    text-align:center;
+    letter-spacing: 1px;
+}
+
+
+/* icons */
+.fa-solid{
+    font-size: 22px;
+}
+.fa-brands{
+    font-size: 22px;
+    float: left;
+}
+.fa-spotify{
+    color: #1DB954;
+}
+.fa-facebook{
+    color: #1877f2;
+}
+.fa-twitter{
+    color: #1b1b1b;
+}
+.fa-linkedin{
+    color: #0077B5;
+    font-size: 22px;
+    float: left;
+}
+
+.fa-reddit{
+    color: #FF4500;
+}
+.fa-bell{
+    color: rgb(255, 211, 91);
+    font-size: 22px;
+    float: left;
+}
+.fa-user{
+    color: black;
+    font-size: 22px;
+    float: left;
+}
+.fa-up-right-from-square{
+    color:rgb(0, 0, 0);
+    font-size: 18px;
+    float: right;
+}
+.fa-instagram{
+    color: #d62976;
+    margin-left: 0px;
+}
+.fa-up-long{
+    font-size: 25px;
+}
+
+/* Footer */
+footer{
+    color: white;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-top:15px;
+    /* margin-bottom: 5px; */
+
+}
+
+
+/* Code for mobile */
+@media only screen and (max-width: 600px) {
+    body{
+        background: #1b1b1b;
+    }
+    h1{
+        letter-spacing: 3px;
+    }
+
+    .redirector_box{
+        background: #1b1b1b;
+        border-radius: 50px;
+        margin-top: 35px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        height: max-content;
+        width: 80%;
+        padding: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.545);
+    }
+    .redirector_btn_box{
+        background: black;
+        border-radius: 25px;
+        height: 25vh;
+        overflow-y:auto;
+        padding: 20px 25px 20px 25px;
+    }
+    .btn:hover{
+        transition: 0.5s;
+        color: white;
+        letter-spacing: 2px;
+        transform: scale(0.93);
+        word-spacing: 5px;
+        text-shadow:7px 7px 6px black;
+    }
+    ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: white;
+        border-radius: 100px;
+      }
+    
+      ::-webkit-scrollbar-thumb {
+        background: grey;
+        border-radius: 100px;
+      }
+    
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+    .info{
+        text-align: center;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        margin-bottom: 18px;
+        background: black;
+        border-radius: 25px;
+        padding: 18px;
+        color: white;
+    }
+    .profile_img img{
+        width: 120px;
+        border-radius: 100px;
+        margin-bottom: 25px;
+    }
+    .btn{
+        width: 100%;
+        height:max-content;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3x;
+        background: white;
+    }
+
+
+
+
+    
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* FOR PORVIDING BUTTON DESCRIPTION */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+
+
+    /* .link-desc{
+        font-size: 9px;
+        margin: 10px 0px 0px 0px;
+        padding: 10px 0px 0px 0px;
+        border-top:2px solid black ;
+        text-transform: none;
+        letter-spacing: 1px;
+        color: black;
+    }
+    .btn:hover > .link-desc{
+        color: white;
+        letter-spacing: 1px;
+    }
+    .fa-up-right-from-square{
+        color:black;
+        font-size: 9px;
+        margin-right:3px;
+    } */
+}
