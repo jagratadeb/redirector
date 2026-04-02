@@ -2,6 +2,15 @@
   const canvas = document.querySelector(".particle-canvas");
   if (!canvas) return;
 
+  const isMobileViewport =
+    window.matchMedia("(max-width: 768px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
+
+  if (isMobileViewport) {
+    canvas.style.display = "none";
+    return;
+  }
+
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
@@ -14,16 +23,8 @@
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
   let animationId = 0;
 
-  function isPhoneViewport() {
-    return width <= 768;
-  }
-
-  function isLowPowerViewport() {
-    return isPhoneViewport() || window.matchMedia("(pointer: coarse)").matches;
-  }
-
   function shouldAnimate() {
-    return !prefersReducedMotion.matches && !isLowPowerViewport();
+    return !prefersReducedMotion.matches;
   }
 
   function randomIn(min, max) {
@@ -40,18 +41,13 @@
   }
 
   function makeParticle() {
-    const phone = isPhoneViewport();
-    const radiusMin = phone ? 1.2 : 1.6;
-    const radiusMax = phone ? 2.8 : 3.8;
-    const speedMin = phone ? -0.28 : -0.33;
-    const speedMax = phone ? 0.28 : 0.33;
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      r: randomIn(radiusMin, radiusMax),
-      vy: randomIn(speedMin, speedMax),
-      vx: randomIn(speedMin, speedMax),
-      alpha: randomIn(phone ? 0.18 : 0.28, phone ? 0.46 : 0.78),
+      r: randomIn(1.6, 3.8),
+      vy: randomIn(-0.33, 0.33),
+      vx: randomIn(-0.33, 0.33),
+      alpha: randomIn(0.28, 0.78),
       hue: Math.random() > 0.35 ? 195 : 160,
       life: 140 + Math.random() * 280,
       age: Math.random() * 160,
@@ -59,17 +55,12 @@
   }
 
   function resetParticle(p) {
-    const phone = isPhoneViewport();
-    const radiusMin = phone ? 1.2 : 1.6;
-    const radiusMax = phone ? 2.8 : 3.8;
-    const speedMin = phone ? -0.28 : -0.33;
-    const speedMax = phone ? 0.28 : 0.33;
     p.x = Math.random() * width;
     p.y = Math.random() * height;
-    p.r = randomIn(radiusMin, radiusMax);
-    p.vy = randomIn(speedMin, speedMax);
-    p.vx = randomIn(speedMin, speedMax);
-    p.alpha = randomIn(phone ? 0.18 : 0.28, phone ? 0.46 : 0.78);
+    p.r = randomIn(1.6, 3.8);
+    p.vy = randomIn(-0.33, 0.33);
+    p.vx = randomIn(-0.33, 0.33);
+    p.alpha = randomIn(0.28, 0.78);
     p.hue = Math.random() > 0.35 ? 195 : 160;
     p.life = 140 + Math.random() * 280;
     p.age = 0;
@@ -77,8 +68,7 @@
 
   function populate() {
     particles.length = 0;
-    const phone = isPhoneViewport();
-    const density = shouldAnimate() ? (phone ? 156 : 102) : phone ? 6 : 24;
+    const density = 102;
     for (let i = 0; i < density; i += 1) {
       const p = makeParticle();
       p.age = Math.random() * p.life;
@@ -94,11 +84,7 @@
     ctx.beginPath();
     ctx.fillStyle = `hsla(${p.hue}, 95%, 74%, ${alpha})`;
     ctx.shadowColor = `hsla(${p.hue}, 95%, 74%, ${Math.min(alpha * 1.15, 0.9)})`;
-    ctx.shadowBlur = shouldAnimate()
-      ? p.r * 10
-      : isPhoneViewport()
-        ? 0
-        : p.r * 4;
+    ctx.shadowBlur = p.r * 10;
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fill();
   }
